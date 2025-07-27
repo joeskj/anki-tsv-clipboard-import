@@ -25,7 +25,7 @@ jobs:
           asset_content_type: application/zip
       - name: Upload artifact
         if: github.event_name != 'release'
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: package
           path: tsv_clipboard_import.ankiaddon

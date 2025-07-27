@@ -10,7 +10,7 @@ saved to a temporary file and passed to Anki's standard import routine.
 
 ## Releases
 
-Each release packages the `tsv_clipboard_import` directory into a
+Each release packages the contents of the `tsv_clipboard_import` directory into a
 `tsv_clipboard_import.ankiaddon` file using a GitHub Action. The packaged file
 is attached to the release so you can download it from the project's Releases
 page and import it directly into Anki.

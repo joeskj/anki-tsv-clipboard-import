@@ -30,12 +30,15 @@ def import_tsv_from_clipboard() -> None:
             pass
 
 
-def on_file_menu_did_init(menu) -> None:
+def _add_menu_action(menu) -> None:
+    """Add the TSV import action to the given menu."""
     action = QAction("Import TSV from Clipboard", menu)
     action.setShortcut(QKeySequence("Ctrl+Shift+V"))
     qconnect(action.triggered, import_tsv_from_clipboard)
     menu.addAction(action)
 
-
 # Register the menu hook
-gui_hooks.file_menu_did_init.append(on_file_menu_did_init)
+def on_main_window_did_init() -> None:
+    _add_menu_action(mw.form.menuCol)
+
+gui_hooks.main_window_did_init.append(on_main_window_did_init)

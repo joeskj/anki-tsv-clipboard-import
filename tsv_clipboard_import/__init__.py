@@ -10,7 +10,6 @@ from aqt.utils import qconnect, show_info
 
 _temp_paths: list[str] = []
 
-
 def import_tsv_from_clipboard() -> None:
     """Import TSV data from the system clipboard."""
     text = mw.app.clipboard().text()
@@ -33,7 +32,26 @@ def _add_menu_action(menu) -> None:
     action = QAction("Import TSV from Clipboard", menu)
     action.setShortcut(QKeySequence("Ctrl+Shift+V"))
     qconnect(action.triggered, import_tsv_from_clipboard)
-    menu.addAction(action)
+    # try to position the action directly below the built-in Import option
+    import_action = getattr(mw.form, "actionImport", None)
+
+    if import_action:
+        actions = menu.actions()
+        try:
+            idx = actions.index(import_action)
+        except ValueError:
+            idx = -1
+
+        insert_before = (
+            actions[idx + 1] if idx != -1 and idx + 1 < len(actions) else None
+        )
+        if insert_before:
+            menu.insertAction(insert_before, action)
+        else:
+            menu.addAction(action)
+    else:
+        menu.addAction(action)
+
 
 
 # Register the menu hook

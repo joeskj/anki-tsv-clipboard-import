@@ -1,0 +1,11 @@
+{
+  "package": "tsv_clipboard_import",
+  "name": "Import TSV from Clipboard",
+  "mod": 0,
+  "conflicts": [],
+  "min_point_version": 0,
+  "max_point_version": 0,
+  "branch_index": 0,
+  "human_version": "0.1.0",
+  "homepage": ""
+}

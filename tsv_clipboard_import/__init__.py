@@ -10,6 +10,7 @@ from aqt.utils import qconnect, show_info
 
 _temp_paths: list[str] = []
 
+
 def import_tsv_from_clipboard() -> None:
     """Import TSV data from the system clipboard."""
     text = mw.app.clipboard().text()
@@ -25,6 +26,11 @@ def import_tsv_from_clipboard() -> None:
 
     _temp_paths.append(path)
     import_file(mw, path)
+    try:
+        os.unlink(path)
+        _temp_paths.remove(path)
+    except Exception:
+        pass
 
 
 def _add_menu_action(menu) -> None:
@@ -51,7 +57,6 @@ def _add_menu_action(menu) -> None:
             menu.addAction(action)
     else:
         menu.addAction(action)
-
 
 
 # Register the menu hook

@@ -26,11 +26,6 @@ def import_tsv_from_clipboard() -> None:
 
     _temp_paths.append(path)
     import_file(mw, path)
-    try:
-        os.unlink(path)
-        _temp_paths.remove(path)
-    except Exception:
-        pass
 
 
 def _add_menu_action(menu) -> None:

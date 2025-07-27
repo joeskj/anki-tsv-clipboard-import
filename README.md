@@ -16,3 +16,4 @@ Each release packages the contents of the `tsv_clipboard_import` directory into 
 is attached to the release so you can download it from the project's Releases
 page and import it directly into Anki.
 
+https://ankiweb.net/shared/info/665065772

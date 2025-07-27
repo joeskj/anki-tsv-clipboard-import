@@ -3,7 +3,7 @@
   "name": "Import TSV from Clipboard",
   "description": "Import notes from TSV data stored in the clipboard.",
   "author": "joeskj",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
   "homepage": "https://github.com/joeskj/anki-tsv-clipboard-import",
   "mod": 0,
